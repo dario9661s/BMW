@@ -1,0 +1,131 @@
+:root {
+  --clr-neon: rgba(181, 181, 189, 0.4);
+  --clr-bg: rgba(181, 181, 189, 0.2);
+  --clr-btns: rgba(4, 4, 5, 0.61);
+}
+html {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+.main .MuiStepper-root {
+  padding: 0;
+}
+.main .MuiStepLabel-label.MuiStepLabel-active {
+  font-size: 20px;
+  color: white !important;
+  font-weight: 700 !important;
+}
+.MuiTypography-h5 {
+  color: white;
+}
+body {
+  margin: 0;
+}
+.Price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Price button {
+  font-size: 18px;
+  color: white;
+}
+html {
+  background-image: url(https://images.unsplash.com/photo-1552321876-ac707a080f1b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.MuiStepIcon-root.MuiStepIcon-active {
+  color: var(--clr-btns) !important;
+}
+.MuiButton-containedPrimary {
+  background-color: var(--clr-btns) !important;
+}
+.MuiStepIcon-root.MuiStepIcon-completed {
+  color: var(--clr-btns) !important;
+}
+.MuiStepper-vertical {
+  width: 450px;
+  border-radius: 5px;
+  background: linear-gradient(rgba(139, 139, 146, 0.267), transparent);
+  padding: 10px !important;
+}
+.main .MuiPaper-root {
+  background-color: transparent !important;
+}
+.main .makeStyles-root-6 {
+  box-shadow: none;
+  margin: 10px;
+}
+.main .MuiButtonGroup-grouped {
+  background-color: rgba(181, 181, 189, 0.7) !important;
+}
+.neonCage {
+  width: 500px;
+  height: 400px;
+  position: relative;
+}
+.neonCage::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--clr-neon);
+  top: 49%;
+  left: 42%;
+  width: 23%;
+  height: 30%;
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(4em);
+  opacity: 0.6;
+}
+.swiper-slide {
+  width: 381px !important;
+  margin: 14px 0 14px 14px;
+  margin-right: 34px !important;
+}
+.swiper-button-prev {
+  position: relative !important;
+}
+.swiper-button-prev:after {
+  content: "" !important;
+  background-image: url("/images/arrow.png") !important;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  position: absolute;
+  top: 265px;
+  left: 10px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  z-index: 100000;
+}
+.MuiPaper-elevation1 {
+  box-shadow: none !important;
+}
+.swiper-button-next:after {
+  transform: rotate(180deg);
+  content: "" !important;
+  background-image: url("/images/arrow.png") !important;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  position: absolute;
+  top: 265px;
+  cursor: pointer;
+  right: 9px;
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  z-index: 100000;
+}
+.MuiAppBar-colorPrimary {
+  background: rgba(63, 63, 71, 0.904) !important;
+}
+.main {
+  padding: 15px;
+}
