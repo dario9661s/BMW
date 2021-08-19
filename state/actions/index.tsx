@@ -18,6 +18,13 @@ interface setActive  {
     }
 }
 
+interface setUpgrade  {
+    type: ActionType.SET_UPGRADE 
+    payload: string
+}
+
 export type ActionActive = setActive
 
 export type Action = Getproducts
+
+export type ActionUpgrade = setUpgrade

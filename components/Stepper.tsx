@@ -49,8 +49,7 @@ export default function VerticalLinearStepper() {
   const steps = getSteps();
   const products = useSelector((state: State) => state.products)
   const { setActive } = bindActionCreators(actionCreators, dispatch)
-  const active = useSelector((state: State) => state.active)
-  console.log(active)
+  const { setUpgrade } = bindActionCreators(actionCreators, dispatch)
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
@@ -63,8 +62,9 @@ export default function VerticalLinearStepper() {
     setActiveStep(0);
   };
 
-  const setUpgrade = (index:number, collection:string) => {
+  const setUpgradeHandle = (index:number, collection:string) => {
       setActive(products[collection][index])
+      setUpgrade(collection)
   };
 
   function getStepContent(step: number) {
@@ -78,7 +78,7 @@ export default function VerticalLinearStepper() {
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log("dad")}
-        onSlideChange={(swiper) => setUpgrade(swiper.realIndex, "frontBumperUpgrades")}
+        onSlideChange={(swiper) => setUpgradeHandle(swiper.realIndex, "frontBumperUpgrades")}
       >
        {products.frontBumperUpgrades && products.frontBumperUpgrades.map((upgrade: any)=> {
          return <SwiperSlide><Card frontBumper = {upgrade}/></SwiperSlide>
@@ -91,8 +91,8 @@ export default function VerticalLinearStepper() {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => setUpgrade(swiper.realIndex , "backBumperUpgrades")}
-        onSlideChange={(swiper) => setUpgrade(swiper.realIndex , "backBumperUpgrades")}
+        onSwiper={(swiper) => setUpgradeHandle(swiper.realIndex , "backBumperUpgrades")}
+        onSlideChange={(swiper) => setUpgradeHandle(swiper.realIndex , "backBumperUpgrades")}
       >
        {products.backBumperUpgrades && products.backBumperUpgrades.map((upgrade: any)=> {
          return <SwiperSlide><Card frontBumper = {upgrade}/></SwiperSlide>
@@ -105,8 +105,8 @@ export default function VerticalLinearStepper() {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => setUpgrade(swiper.realIndex , "steeringWheelsUpgrades")}
-        onSlideChange={(swiper) => setUpgrade(swiper.realIndex , "steeringWheelsUpgrades")}
+        onSwiper={(swiper) => setUpgradeHandle(swiper.realIndex , "steeringWheelsUpgrades")}
+        onSlideChange={(swiper) => setUpgradeHandle(swiper.realIndex , "steeringWheelsUpgrades")}
       >
        {products.steeringWheelsUpgrades && products.steeringWheelsUpgrades.map((upgrade: any)=> {
          return <SwiperSlide><Card frontBumper = {upgrade}/></SwiperSlide>
@@ -119,8 +119,8 @@ export default function VerticalLinearStepper() {
           navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          onSwiper={(swiper) => setUpgrade(swiper.realIndex, "computer")}
-          onSlideChange={(swiper) => setUpgrade(swiper.realIndex, "computer")}
+          onSwiper={(swiper) => setUpgradeHandle(swiper.realIndex, "computer")}
+          onSlideChange={(swiper) => setUpgradeHandle(swiper.realIndex, "computer")}
         >
          {products.computer && products.computer.map((upgrade: any)=> {
            return <SwiperSlide><Card frontBumper = {upgrade}/></SwiperSlide>
@@ -133,8 +133,8 @@ export default function VerticalLinearStepper() {
             navigation
             pagination={{ clickable: true }}
             scrollbar={{ draggable: true }}
-            onSwiper={(swiper) => setUpgrade(swiper.realIndex, "wheels")}
-            onSlideChange={(swiper) => setUpgrade(swiper.realIndex, "wheels")}
+            onSwiper={(swiper) => setUpgradeHandle(swiper.realIndex, "wheels")}
+            onSlideChange={(swiper) => setUpgradeHandle(swiper.realIndex, "wheels")}
           >
            {products.wheels && products.wheels.map((upgrade: any)=> {
              return <SwiperSlide><Card frontBumper = {upgrade}/></SwiperSlide>

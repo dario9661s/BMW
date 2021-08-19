@@ -10,9 +10,10 @@ import { actionCreators, State } from "../state"
 function Index(props: { frontBumpers: Object, backBumpers: Object, steeringWheels: Object, computer: Object, wheels: Object}) {
   const dispatch = useDispatch()
   const products = useSelector((state: State) => state.products)
-  const active = useSelector((state: State) => state.active)
+  // const active = useSelector((state: State) => state.active)
   const { setActive } = bindActionCreators(actionCreators, dispatch)
   const { setFront } = bindActionCreators(actionCreators, dispatch)
+  const { setUpgrade } = bindActionCreators(actionCreators, dispatch)
 
   console.log(products)
   useEffect(() => {
@@ -48,10 +49,8 @@ function Index(props: { frontBumpers: Object, backBumpers: Object, steeringWheel
     }
     setFront({ frontBumpers: frontBumpersArray, backBumpers: backBumpersArray, steeringWheels:steeringWheelsArray, computer: computerArray, wheels: wheelsArray})
     setActive(frontBumpersArray[0])
+    setUpgrade("frontBumperUpgrades")
   }, [])
-  console.log('====================================');
-  console.log(active.active);
-  console.log('====================================');
   return (
     <Grid
       className="main"
@@ -71,7 +70,7 @@ function Index(props: { frontBumpers: Object, backBumpers: Object, steeringWheel
       </Grid>
       <div className="neonCage">
       <ModalSelector />
-      {active.active ?<img style={{ width: "100%" }} src={`images/${Object.keys(active.active)[0]}.png`} /> : null}
+      {products.active ?<img style={{ width: "100%" }} src={`images/${products.upgrade}/${Object.keys(products.active)[0]}.png`} /> : null}
       
       </div>
     </Grid>
